@@ -1,16 +1,16 @@
-package com.inch.donknow.ui.slideshow;
+package com.inch.donknow.ui.rc_place;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class RcPlaceViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public RcPlaceViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("RcPlaceFragment Placeholder");
     }
 
     public LiveData<String> getText() {

@@ -1,16 +1,16 @@
-package com.inch.donknow.ui.gallery;
+package com.inch.donknow.ui.rc;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class RcViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public RcViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("RcFragment Placeholder");
     }
 
     public LiveData<String> getText() {

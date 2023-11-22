@@ -3,7 +3,6 @@ package com.inch.donknow;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,18 +21,21 @@ import com.inch.donknow.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
+
+    public MainActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.inch.donknow.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         Fragment1 fragment1 = new Fragment1();
         Fragment2 fragment2 = new Fragment2();
         Fragment3 fragment3 = new Fragment3();
+
 
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnItemSelectedListener((MenuItem menuItem) -> {
@@ -52,32 +54,36 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             return false;
+
         });
 
 
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        binding.appBarMain.toolbar.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
+
+
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+//         Passing each menu ID as a set of Ids because each
+//         menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_rc_place, R.id.nav_rc, R.id.nav_announce, R.id.nav_information)
                 .setOpenableLayout(drawer)
                 .build();
+
+//
+
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNDEFINED);
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
     }
 
     @Override

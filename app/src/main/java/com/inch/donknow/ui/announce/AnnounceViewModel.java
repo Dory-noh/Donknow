@@ -1,16 +1,16 @@
-package com.inch.donknow.ui.home;
+package com.inch.donknow.ui.announce;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class AnnounceViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public AnnounceViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("AnnounceFragment Placeholder");
     }
 
     public LiveData<String> getText() {
